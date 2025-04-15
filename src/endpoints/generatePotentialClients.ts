@@ -87,7 +87,7 @@ export class GeneratePotentialClients extends OpenAPIRoute {
     // --- Step 1: Call Gemini API --- 
     try {
       const ai = new GoogleGenAI({apiKey: geminiApiKey}); // Use correct key variable
-      const modelName = "gemini-1.5-flash"; 
+      const modelName = "gemini-2.0-flash"; 
 
       const fullPrompt = `System Instruction: you will generate search keywords for potential b2b clients. the user will tell you about their business, you need to analyze who are their potential clients. output your keywords (potential clients) as if you will search it on google maps. DO NOT add anything else, just show the keywords. Format it as a list of keywords, one per line.\n\nUser Business Description: ${businessDescription}`;
 
