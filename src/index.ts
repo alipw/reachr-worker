@@ -1,5 +1,6 @@
 import { fromHono } from "chanfana";
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { TaskCreate } from "./endpoints/taskCreate";
 import { TaskDelete } from "./endpoints/taskDelete";
 import { TaskFetch } from "./endpoints/taskFetch";
@@ -8,6 +9,7 @@ import { GeneratePotentialClients } from "./endpoints/generatePotentialClients";
 
 // Start a Hono app
 const app = new Hono();
+app.use('*', cors());
 
 // Setup OpenAPI registry
 const openapi = fromHono(app, {

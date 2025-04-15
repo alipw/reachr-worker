@@ -125,7 +125,7 @@ export class GeneratePotentialClients extends OpenAPIRoute {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Goog-Api-Key': placesApiKey,
-                'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel,places.nationalPhoneNumber,places.nationalPhoneNumber,places.nationalPhoneNumber,places.userRatingCount'
+                // 'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel,places.nationalPhoneNumber,places.nationalPhoneNumber,places.nationalPhoneNumber,places.userRatingCount'
             },
             body: JSON.stringify({ textQuery: firstKeyword })
         });
