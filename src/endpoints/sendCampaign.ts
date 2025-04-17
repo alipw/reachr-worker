@@ -115,7 +115,7 @@ export class SendCampaign extends OpenAPIRoute {
     } catch (error) {
       console.error("Error:", error);
       c.status(500);
-      return c.json({ error: "Internal Server Error: " + error.message });
+      return c.json({ error: "Internal Server Errors: " + error.message });
     }
   }
 }
