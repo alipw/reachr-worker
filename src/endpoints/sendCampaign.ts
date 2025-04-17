@@ -70,11 +70,11 @@ export class SendCampaign extends OpenAPIRoute {
 
     try {
       // Step 1: Get access token from login API
-      const loginApiUrl = "http://173.249.59.138/api/auth/sign-in";
+      const loginApiUrl = "http://jo-nitip-di.alifwi.de/api/auth/sign-in";
       const loginResponse = await axios.post(loginApiUrl, {
         username: "admin",
         password: "String@123",
-      },);
+      });
 
       if (
         loginResponse.status !== 201 ||
@@ -88,7 +88,7 @@ export class SendCampaign extends OpenAPIRoute {
 
       // Step 2: Send messages via WhatsApp API
       const whatsappApiUrl =
-        "http://173.249.59.138/api/whatsapp-web/send-many-message";
+        "http://jo-nitip-di.alifwi.de/api/whatsapp-web/send-many-message";
 
       const whatsappResponse = await axios.post(
         whatsappApiUrl,
@@ -111,7 +111,7 @@ export class SendCampaign extends OpenAPIRoute {
     } catch (error) {
       console.error("Error:", error);
       c.status(500);
-      return c.json({ error: "Internal Server Error: " + error.message });
+      return c.json({ error: "Internal Server Error coy: " + error.message });
     }
   }
 }
