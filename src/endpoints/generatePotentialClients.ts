@@ -154,7 +154,7 @@ export class GeneratePotentialClients extends OpenAPIRoute {
         displayName: place.displayName,
         formattedAddress: place.formattedAddress,
         priceLevel: place.priceLevel,
-        internationalPhoneNumber: (place?.internationalPhoneNumber as string)
+        nationalPhoneNumber: (place?.internationalPhoneNumber as string)
           ?.trim()
           ?.replace(/[ +\-]/g, ""),
         userRatingCount: place.userRatingCount,
