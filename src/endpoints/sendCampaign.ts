@@ -70,32 +70,25 @@ export class SendCampaign extends OpenAPIRoute {
 
     try {
       // Step 1: Get access token from login API
-      const loginApiUrl = "http://173.249.59.138/api/auth/sign-in";
-      const loginResponse = await axios.post(
-        loginApiUrl,
-        {
-          username: "admin",
-          password: "String@123",
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            Host: "173.249.59.138",
-            "User-Agent": "curl/7.64.1", 
-          },
-        }
-      );
+      // const loginApiUrl = "http://173.249.59.138/api/auth/sign-in";
+      // const loginResponse = await axios.post(
+      //   loginApiUrl,
+      //   {
+      //     username: "admin",
+      //     password: "String@123",
+      //   },
+      // );
 
-      if (
-        loginResponse.status !== 201 ||
-        !loginResponse.data?.data?.accessToken
-      ) {
-        c.status(500);
-        return c.json({ error: "Failed to authenticate with login API." });
-      }
+      // if (
+      //   loginResponse.status !== 201 ||
+      //   !loginResponse.data?.data?.accessToken
+      // ) {
+      //   c.status(500);
+      //   return c.json({ error: "Failed to authenticate with login API." });
+      // }
 
-      const accessToken = loginResponse.data.data.accessToken;
+      const accessToken =
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInJvbGUiOiJDbGluaWMiLCJjbGluaWNJZCI6MSwiaWF0IjoxNzQ0ODg0MjA5LCJleHAiOjE3NDQ5MjAyMDl9.lKxBqwU4CUqKId5etw4QEgdD9igkjWnhIIbDhbl_VAwa8XC75bnW3uzSjbVl0aOBwbEIBUCHyEYgeKTwLY4VmBxZVCnNqoCHh33IwLjCjQ5iFpKuH6jTVdBnxXmgjrRnIu5sWqDlv2v8guOCQWiNsKXJgrx0RaL38ALdStpwn6gze6ix-IuL7Xg8NXzqQFqsAQrf-YdfI5imi-ZDYddiJSYPbTkmI5aRzjH2JXZgTk11dV9uwKOmC97qnwTEmFMD3ko55_sLABRayKcmMwyVyXHVhFQggGl1MJaZhq3AD3QX_lMqNR8keIrvvPd0LbcDI2Jaq2YnuUVgEUM-v4MzwA";
 
       // Step 2: Send messages via WhatsApp API
       const whatsappApiUrl =
