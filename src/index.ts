@@ -7,6 +7,7 @@ import { TaskFetch } from "./endpoints/taskFetch";
 import { TaskList } from "./endpoints/taskList";
 import { GeneratePotentialClients } from "./endpoints/generatePotentialClients";
 import { ValidateBusinessDescription } from "./endpoints/validateBusinessDescription";
+import { GenerateMarketingStrategy } from "endpoints/generateMarketingStrategy";
 
 // Start a Hono app
 const app = new Hono();
@@ -24,6 +25,7 @@ openapi.get("/api/tasks/:taskSlug", TaskFetch);
 openapi.delete("/api/tasks/:taskSlug", TaskDelete);
 openapi.post("/api/generate-potential-clients", GeneratePotentialClients);
 openapi.post("/api/validate-business-description", ValidateBusinessDescription);
+openapi.post("/api/generate-marketing-strategy", GenerateMarketingStrategy);
 
 // Export the Hono app
 export default app;
