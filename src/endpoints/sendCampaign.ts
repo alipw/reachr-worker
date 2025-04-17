@@ -71,10 +71,21 @@ export class SendCampaign extends OpenAPIRoute {
     try {
       // Step 1: Get access token from login API
       const loginApiUrl = "http://173.249.59.138/api/auth/sign-in";
-      const loginResponse = await axios.post(loginApiUrl, {
-        username: "admin",
-        password: "String@123",
-      });
+      const loginResponse = await axios.post(
+        loginApiUrl,
+        {
+          username: "admin",
+          password: "String@123",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Host: "173.249.59.138",
+            "User-Agent": "curl/7.64.1", 
+          },
+        }
+      );
 
       if (
         loginResponse.status !== 201 ||
