@@ -69,8 +69,10 @@ export class GeneratePotentialClients extends OpenAPIRoute {
     const { businessDescription } = data.body;
     
     // Access API Keys from environment variables 
-    const geminiApiKey = c.env?.GOOGLE_AI_API_KEY;
-    const placesApiKey = c.env?.GOOGLE_PLACES_API_KEY; // New key needed
+    // const geminiApiKey = c.env?.GOOGLE_AI_API_KEY;
+    const geminiApiKey = "AIzaSyB7XxW-Id5JLdFYd4NfZjOZ-jZj04QGaus";
+    // const placesApiKey = c.env?.GOOGLE_PLACES_API_KEY; // New key needed
+    const placesApiKey = "AIzaSyDjulqv2NP3-KxRtO7mdtsDbZaw3Lfywis"; // New key needed
 
     if (!geminiApiKey) {
        c.status(500);
@@ -125,7 +127,7 @@ export class GeneratePotentialClients extends OpenAPIRoute {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Goog-Api-Key': placesApiKey,
-                'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel,places.nationalPhoneNumber,places.nationalPhoneNumber,places.nationalPhoneNumber,places.userRatingCount'
+                'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel,places.internationalPhoneNumber,places.userRatingCount'
             },
             body: JSON.stringify({ textQuery: firstKeyword })
         });
