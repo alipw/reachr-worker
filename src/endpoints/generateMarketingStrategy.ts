@@ -80,7 +80,7 @@ export class GenerateMarketingStrategy extends OpenAPIRoute {
     const { businessDescription } = data.body;
 
     // Access API Key
-    const geminiApiKey = "AIzaSyB7XxW-Id5JLdFYd4NfZjOZ-jZj04QGaus";
+    const geminiApiKey = c.env?.GOOGLE_AI_API_KEY;
 
     if (!geminiApiKey) {
       c.status(500);
